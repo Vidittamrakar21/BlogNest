@@ -1,0 +1,102 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans+JP:wght@600&display=swap');
+
+
+#bar{
+    height: 50px;
+   background-color: white;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+    user-select: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    cursor: pointer;
+    border-bottom: 0.5px solid rgba(200, 198, 198, 0.652);
+}
+
+#bar h1{
+     font-family: 'Montserrat', sans-serif;
+     font-weight: 400;
+     font-size: 27px;
+    
+}
+
+#tags{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+#tags li{
+    list-style-type: none;
+    margin: 5px;
+    padding: 5px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#tags li:hover{
+    color: #578976;
+}
+
+#bar input{
+    width: 195px;
+    height: 30px;
+}
+
+#butter{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#ser{
+    height: 30px;
+    width: 70px;
+    background-color: #5C8374;
+    border: none;
+    color: white;
+    cursor: pointer;
+
+}
+
+#ser:hover{
+    background-color: #578976;
+}
+
+#menu{
+    display: none;
+}
+
+#but{
+    height: 25px;
+    width: 90px;
+    border: 1px solid #578976;
+    background-color: white;
+}
+
+#but:hover{
+    background-color: #a9abaa73;
+}
+
+#write{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#write li {
+    list-style-type: none;
+    margin-left: 10px;
+    font-size: 17px;
+}
+
+#write li:hover{
+    color: #578976;
+}

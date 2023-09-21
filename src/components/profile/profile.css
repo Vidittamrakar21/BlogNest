@@ -1,0 +1,245 @@
+#pro{
+    min-height: 750px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile{
+    min-height: 700px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 850px;
+   
+    margin-left: -500px;
+    margin-top: 50px;
+}
+
+#settings{
+    display: flex;
+  
+    flex-direction: column;
+    height: 700px;
+    width: 400px;
+    border-left: 0.5px solid rgba(199, 198, 198, 0.664);
+    position: fixed;
+    right: 0px;
+    top: 50px;
+    
+}
+
+#about{
+    width: 800px;
+    height: 450px;
+   border-bottom: 1px solid rgb(142, 141, 141);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#namu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mamu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+}
+
+#oop{
+    width: 125px;
+    height: 125px;
+    border-radius: 80px;
+    padding: 20px;
+}
+
+#pop{
+    width: 65px;
+    height: 65px;
+    border-radius: 80px;
+    padding: 20px;
+}
+
+#oop img{
+    width: 100%;
+    height: 100%;
+    border-radius: 80px;
+}
+
+#pop img{
+    width: 100%;
+    height: 100%;
+    border-radius: 80px;
+}
+
+#ff{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#dd{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#follow{
+    width: 150px;
+    height: 25px;
+    color: white;
+    border:  none;
+    background-color: rgb(118, 199, 129);
+}
+
+#follow:hover{
+    background-color: rgb(123, 206, 136);
+    
+}
+
+#num{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#num h3{
+    padding: 10px;
+}
+
+#posts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#out{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: 20px;
+}
+
+#out h5{
+    color: green;
+    font-weight: 500;
+}
+
+#out h5:hover{
+    color: rgb(91, 173, 91);
+    cursor: pointer;
+}
+.joot{
+    position: absolute;
+    bottom: 10px;
+}
+
+#file{
+    display: none;
+}
+
+#uplo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+#uplo label{
+    height: 25px;
+    width: 90px;
+    border-radius: 10px;
+    margin-left: 25px;
+    background-color: rgb(102, 163, 163);
+}
+#uplo label:hover{
+   cursor: pointer;
+    background-color: rgb(110, 150, 150);
+}
+
+#mm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    height: 40px;
+    user-select: none;
+    margin-top: 20px;
+}
+
+#oo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    user-select: none;
+}
+
+#oo input{
+    width: 250px;
+    height: 30px;
+    border: 2px solid rgb(102, 163, 163);
+}
+
+#oo button{
+    height: 35px;
+    width: 90px;
+    margin-left: 8px;
+    background-color: rgba(149, 150, 150, 0.67);
+    border: none;
+    font-size: 15px;
+}
+
+#oo button:hover{
+    background-color: rgba(127, 129, 129, 0.67);
+    cursor: pointer;
+}
+
+#koo{
+    position: absolute;
+    top: 470px;
+    left: 380px;
+}
+
+#ev{
+    position: relative;
+    top: 170px;
+    width: 120px;
+    height: 30px;
+    background-color: rgb(101, 236, 101);
+    user-select: none;
+    border: none;
+    font-size: 14px;
+}
+#ev:hover{
+    background-color: rgb(86, 199, 86);
+    cursor: pointer;
+
+}
+
+#ii{
+    margin-top: -300px;
+
+}
+
+#del{
+    position: absolute;
+    top: 670px;
+    color: red;
+    font-weight: 500;
+}

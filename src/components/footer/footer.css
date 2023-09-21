@@ -1,0 +1,16 @@
+#foot{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(242, 242, 242);
+    border-top: 0.5px solid rgb(186, 185, 185);
+    user-select: none;
+}
+
+#foot h5{
+    font-weight: 400;
+    padding: 8px;
+    color: rgb(86, 85, 85);
+    cursor: pointer;
+}

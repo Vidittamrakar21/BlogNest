@@ -1,0 +1,196 @@
+#blog{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#comment{
+    height: 750px;
+    width: 400px;
+    position: fixed;
+    right: 0px;
+    top: 51px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+textarea{
+    resize: none;
+    position: absolute;
+    top: 70px;
+    border: none;
+    box-shadow: 5px 6px 9px 2px #d2cfcf;
+    font-size: 14px;
+}
+
+
+#comment h2{
+    position: absolute;
+    top: 0px;
+    left: 18px;
+}
+
+#rr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 190px;
+    right: 50px;
+}
+
+.mut{
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 12px;
+    border: none;
+}
+
+#resp{
+    background-color: rgb(78, 222, 78);
+}
+
+#resp:hover{
+    background-color: rgb(127, 216, 127);
+}
+
+#can:hover{
+    background-color: rgba(109, 108, 108, 0.527);
+}
+
+#response{
+    width: 380px;
+    min-height: 300px;
+    
+  
+    margin-top: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+#xx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70px;
+    width: 379px;
+    border-top: 0.5px solid rgb(180, 178, 178);
+    border-bottom: 0.5px solid rgb(180, 178, 178);
+    margin-top: 20px;
+   position: relative;
+   top: 200px;
+  cursor: pointer;
+   
+}
+
+#xx h3{
+    font-weight: 400;
+    font-size: 16px;
+    position: relative;
+    top: 15px;
+    right: 135px;
+}
+
+#xx h4{
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    bottom: 20px;
+    right: 125px;
+}
+
+.hide{
+    display: none;
+}
+
+/* card */
+
+#card{
+    min-height: 750px;
+    width: 700px;
+    background-color: white;
+    margin-top: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 15px;
+}
+
+#fro{
+    height: 300px;
+    width: 700px;
+}
+
+#fro img{
+    height: 100%;
+    width: 100%;
+}
+
+#content h1{
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+    margin-left: 20px;
+}
+
+#content p{
+    padding: 20px;
+}
+
+#operate{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 200px;
+}
+
+.vi{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    
+}
+
+#top{
+
+    height: 25px;
+    width: 25px;
+    border-radius: 20px;
+   position: relative;
+   top: 20px;
+   left: -137px;
+
+    
+}
+
+#top img{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+#fufa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
