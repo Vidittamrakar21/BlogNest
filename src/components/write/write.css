@@ -1,0 +1,42 @@
+
+#wt{
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+   background-color: white;
+}
+
+#guga{
+    margin-top: 70px;
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+
+}
+
+#editor{
+    margin-top: 15px;
+    width: 850px;
+}
+
+.link{
+    width: 840px;
+    height: 30px;
+    margin-top: 15px;
+}
+
+#publish{
+    width: 850px;
+    height: 30px;
+    margin-top: 15px;
+    border: none;
+    background-color:  #4b675c;;
+    color: white;
+    font-size: 15px;
+}
+
+#publish:hover{
+    background-color:  #406959;;
+
+}

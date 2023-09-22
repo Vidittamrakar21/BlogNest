@@ -6,7 +6,7 @@ function Home (){
     return (
         <div id='home'>
            <div id="latest">
-            <h1>Latest</h1>
+            <h1 className='juu'>Latest</h1>
            
            <Latest></Latest>
             <Latest></Latest>
@@ -15,7 +15,7 @@ function Home (){
            
            </div>
            <div id="trending">
-            <h1>Trending</h1>
+            <h1 className='juu'>Trending</h1>
             <div id='flow'>
             <Trend></Trend>
             <Trend></Trend>

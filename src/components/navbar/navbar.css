@@ -17,11 +17,11 @@
     border-bottom: 0.5px solid rgba(200, 198, 198, 0.652);
 }
 
-#bar h1{
+#nest{
      font-family: 'Montserrat', sans-serif;
      font-weight: 400;
      font-size: 27px;
-    
+     color: #4b675c;
 }
 
 #tags{
@@ -99,4 +99,9 @@
 
 #write li:hover{
     color: #578976;
+}
+
+.lona{
+    text-decoration: none;
+    color: black;
 }

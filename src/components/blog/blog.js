@@ -75,12 +75,10 @@ function Blog () {
                                 <div id="xx">
 
                                     <div id='fufa'>
-
-
-                                     <div id="top">
-                                       <img src="/images/vid.jpg" alt="" />
-                                    </div>
-                                     <h3>By @{item.name}</h3>
+                                         <div id="top">
+                                           <img src="/images/vid.jpg" alt="" />
+                                         </div>
+                                         <h3>By @{item.name}</h3>
                                     </div>
                                 <h4>{item.com}</h4>
                             </div>
