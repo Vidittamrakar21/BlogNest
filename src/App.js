@@ -8,6 +8,7 @@ import Checkstate from './context/checkstate';
 import Footer from './components/footer/Footer';
 import Profile from './components/profile/profile';
 import Write from './components/write/write';
+import User from './components/user/user';
 import {
 	BrowserRouter as Router,
 	Routes,
@@ -32,6 +33,8 @@ function App() {
           <Route exact path='/blog' element={<><Blog/> <Login></Login> <Footer></Footer></>}></Route>
 
           <Route exact path='/write' element={<><Write/>  <Footer></Footer></>}></Route>  
+
+          <Route exact path='/user' element={<><User/>  <Footer></Footer></>}></Route>  
 
         </Routes>  
        

@@ -243,3 +243,13 @@
     color: red;
     font-weight: 500;
 }
+
+#nand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 50px;
+
+}

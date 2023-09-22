@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  
 }
 
 
@@ -193,4 +194,11 @@ textarea{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#zs{
+    position: relative;
+    bottom: 325px;
+    left: 650px;
+
 }

@@ -1,6 +1,7 @@
 import './blog.css'
 import { useContext } from 'react';
 import checkcontext from '../../context/checkcontext';
+import {Link} from 'react-router-dom';
 
 function Blog () {
     const a = useContext(checkcontext);
@@ -17,6 +18,7 @@ function Blog () {
     return (
         <>
         <div id="blog">
+        <Link className='lona' to={'/user'}><h5 id='zs'>By @<span id='byy'>Rithuik</span></h5></Link>
             <div id="card">
                 <div id="fro">
                     <img src="https://5.imimg.com/data5/SELLER/Default/2021/4/FR/KN/OX/55284628/python-programming-online-course-500x500.jpeg" alt="" />
@@ -49,6 +51,8 @@ function Blog () {
                     </svg>
                     </div>
                 </div>
+
+         
 
             </div>
 

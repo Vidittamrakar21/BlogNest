@@ -1,16 +1,30 @@
 import './profile.css';
 import Latest from '../latest/latest';
 import Footer from '../footer/Footer';
+import User from '../user/user';
 import { useState } from 'react';
 
 function Profile () {
 
     const [edit, isedit] = useState(false);
+    const [save, osave] = useState(false);
+    const [pro, opro] = useState(true);
+
     const doedit = () => {
+        osave(false);
+        opro(false);
         isedit(true);
     }
 
-    const noedit = () => {
+    const dosave = () => {
+        osave(true);
+        opro(false);
+        isedit(false);
+    }
+
+    const dopro = () => {
+        osave(false);
+        opro(true);
         isedit(false);
     }
 
@@ -18,33 +32,7 @@ function Profile () {
     return(
         <div id="pro">
             <div id='profile'>
-                    {!edit && <> <div id="about">
-                    <div id="namu">
-                        <div id="oop">
-                            <img src="/images/vid.jpg" alt="" />
-                        </div>
-                        <div id='ff'>
-                           <h2>@Vidit Tamrakar</h2>
-                            <button id="follow">Follow</button>
-                        </div>
-                    </div>
-
-                    <div id="num">
-                        <h3>104 Followers</h3>
-                        <h3>4 Blogs Posted</h3>
-                    </div>
-
-                    <div id="me">
-                        <h3>About Me</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt praesentium deleniti fuga atque necessitatibus, ratione modi adipisci iusto distinctio rem, odit quo! Atque possimus fugit expedita. Iure quo amet enim molestias dignissimos dolor quia tenetur, odit illo ipsam accusantium provident esse blanditiis voluptatem neque tempora perspiciatis asperiores vero facilis. Itaque.</p>
-                    </div>
-                </div>
-                <div id="posts">
-                    <Latest></Latest>
-                    <Latest></Latest>
-                    <Latest></Latest>
-                    <Latest></Latest>
-                </div></>}
+                    {pro && <> <User></User></>}
 
                 {edit && <div id='ii'>
                 
@@ -86,13 +74,18 @@ function Profile () {
 
               <textarea name="About" id="koo" cols="30" rows="8" placeholder='&nbsp;Write here..'></textarea>
 
-             <button id='ev' onClick={noedit}>Save Changes</button>
+             <button id='ev' onClick={dopro}>Save Changes</button>
 
             <h4 id='del'>Delete Account</h4>
 
 
                 </div>}
 
+            {save && <div id='rakh'>
+                <h2>Blogs Saved By You</h2>
+                <Latest></Latest>
+                
+                </div>}
                
 
 
@@ -110,7 +103,7 @@ function Profile () {
 
                     <div id="out">
                     <h5 onClick={doedit}>Edit Profile</h5>
-                        <h5>Saved Blogs</h5>
+                        <h5 onClick={dosave}>Saved Blogs</h5>
                         <h5>Log Out</h5>
                     </div>
                    <div  className='joot'>
