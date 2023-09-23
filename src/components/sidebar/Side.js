@@ -47,7 +47,7 @@ function Side(props){
           <Link className = "lona" to={"/profile"}>
           <div id="cut"  className='dib'>
            
-           <h4>Profile</h4>
+           <h4>Go To Profile</h4>
         </div>
          </Link>  
 
