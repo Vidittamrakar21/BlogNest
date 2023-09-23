@@ -82,9 +82,15 @@
     color: white;
 }
 
-#out{
+#cut{
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    border: 1px solid rgb(69, 199, 199);
+}
+
+#cut h4{
+    color: rgb(237, 65, 68);
+
 }
 
 #setimg{
@@ -118,13 +124,13 @@
 @media only screen and (max-width: 600px){
     .sidebar{
         background-color: white;
-        height: 162px;
+        height: 322px;
         width: 200px;
         border: 1px solid rgb(146, 144, 144);
         position: absolute;
-        top: 65px;
+        top: 55px;
         border-radius: 10px;
-        right: 10px;
+        right: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -147,6 +153,20 @@
         
     }
 
+    #cat{
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 53px;
+        min-height: 53px;
+        user-select: none;
+        background-color: #5C8374;
+       
+    }
+
     #proimg{
         width: 50px;
         height: 50px;
@@ -160,3 +180,4 @@
         width: 130px;
     }
 }
+

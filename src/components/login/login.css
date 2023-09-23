@@ -115,3 +115,33 @@
 .hide {
     display: none;
 }
+
+@media only screen and (max-width: 600px){
+    #log{
+        position: fixed;
+        top: 120px;
+        right: 15px;
+        height: 440px;
+        width: 330px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    
+    }
+
+    #sign{
+        position: fixed;
+        top: 120px;
+        right: 15px;
+        height: 480px;
+        width: 330px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    
+    }
+}

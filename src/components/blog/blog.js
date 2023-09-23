@@ -18,7 +18,7 @@ function Blog () {
     return (
         <>
         <div id="blog">
-        <Link className='lona' to={'/user'}><h5 id='zs'>By @<span id='byy'>Rithuik</span></h5></Link>
+        <Link className='lona'  to={'/user'}><h5 id='zs'>By @<span id='byy'>Vidit Tamrakar</span></h5></Link>
             <div id="card">
                 <div id="fro">
                     <img src="https://5.imimg.com/data5/SELLER/Default/2021/4/FR/KN/OX/55284628/python-programming-online-course-500x500.jpeg" alt="" />
@@ -66,7 +66,9 @@ function Blog () {
             <div id='outer'  className={`${!a.com ? "hide" : ""}`}>
                 <div id="comment">
                     <h2>Responses(4)</h2>
+                    <div id='area'>
                     <textarea name="comment box" id="text" cols="45" rows="10" placeholder='&nbsp; What are your thoughts?'></textarea>
+                    </div>
                     <div id='rr'>
                         <button id="can"className='mut' onClick={remove}>Cancel</button>
                         <button id="resp"className='mut'>Respond</button>                    

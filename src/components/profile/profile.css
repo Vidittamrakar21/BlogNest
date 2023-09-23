@@ -253,3 +253,124 @@
     margin-top: 50px;
 
 }
+
+#iq{
+    display: none;
+}
+
+@media only screen and (max-width:600px){
+    #settings{
+        display: none;
+    }
+
+    #profile{
+        min-height: 700px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 350px;
+       
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+
+    #iq{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        width: 340px;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+ 
+        position: fixed;
+        bottom: 0;
+        background-color: rgb(82, 225, 240);
+        
+
+    }
+
+    #iq h5{
+       
+        font-weight: 500;
+        font-size: 16px;
+        margin-left: 15px;
+    }
+
+    #uplo label{
+        height: 25px;
+        width: 90px;
+        border-radius: 10px;
+        margin-left: 0px;
+        background-color: rgb(102, 163, 163);
+    }
+
+    #mm{
+        width: 340px;
+    }
+
+    #oo input{
+        width: 230px;
+        height: 30px;
+        border: 2px solid rgb(102, 163, 163);
+    }
+    
+    #oo button{
+        height: 35px;
+        width: 90px;
+        margin-left: 8px;
+        background-color: rgba(149, 150, 150, 0.67);
+        border: none;
+        font-size: 15px;
+    }
+
+    #koo{
+        position: absolute;
+        top: 470px;
+        left: 30px;
+        font-size: 17px;
+    }
+
+    #nand{
+        margin-top: 25px;
+    }
+
+    
+    
+    #about{
+        width: 350px;
+        height: 550px;
+       border-bottom: 1px solid rgb(142, 141, 141);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #oop{
+        width: 95px;
+        height: 95px;
+        border-radius: 80px;
+        padding: 20px;
+    }
+
+    #ev{
+        position: relative;
+        top: 200px;
+        width: 120px;
+        height: 30px;
+        background-color: rgb(101, 236, 101);
+        user-select: none;
+        border: none;
+        font-size: 14px;
+    }
+
+    #follow{
+        width: 160px;
+        height: 30px;
+        color: white;
+        border:  none;
+        background-color: rgb(118, 199, 129);
+    }
+}

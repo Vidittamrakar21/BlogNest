@@ -40,3 +40,35 @@
     background-color:  #406959;;
 
 }
+
+@media only screen and (max-width:600px){
+    #wt{
+    min-height: 720px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+   background-color: white;
+}
+
+#editor{
+    margin-top: 15px;
+    width: 350px;
+}
+
+.link{
+    width: 340px;
+    height: 40px;
+    margin-top: 15px;
+}
+
+#publish{
+    width: 350px;
+    height: 40px;
+    margin-top: 15px;
+    border: none;
+    background-color:  #4b675c;;
+    color: white;
+    font-size: 15px;
+}
+}
+

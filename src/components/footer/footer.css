@@ -14,3 +14,12 @@
     color: rgb(86, 85, 85);
     cursor: pointer;
 }
+
+@media only screen and (max-width:600px){
+    #foot h5{
+        font-weight: 400;
+        padding: 5px;
+        color: rgb(86, 85, 85);
+        cursor: pointer;
+    }
+}

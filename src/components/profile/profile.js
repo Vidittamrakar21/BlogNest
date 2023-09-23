@@ -32,7 +32,10 @@ function Profile () {
     return(
         <div id="pro">
             <div id='profile'>
-                    {pro && <> <User></User></>}
+                    {pro && <> <User></User> <div id="iq">  <h5 onClick={doedit}>Edit Profile</h5>
+                        <h5 onClick={dosave}>Saved Blogs</h5>
+                        <h5>Log Out</h5>
+                        </div></>}
 
                 {edit && <div id='ii'>
                 

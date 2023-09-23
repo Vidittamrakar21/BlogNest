@@ -20,13 +20,17 @@
     flex-direction: column;
 }
 
-textarea{
-    resize: none;
+#area{
+   
     position: absolute;
     top: 70px;
     border: none;
     box-shadow: 5px 6px 9px 2px #d2cfcf;
     font-size: 14px;
+}
+
+textarea{
+    resize: none;
 }
 
 
@@ -201,4 +205,127 @@ textarea{
     bottom: 345px;
     left: 680px;
 
+}
+
+
+
+
+@media only screen and (max-width: 600px){
+    #card{
+        min-height: 750px;
+        width: 340px;
+        background-color: white;
+        margin-top: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+        user-select: none;
+        margin-bottom: 15px;
+      
+    }
+    
+    #fro{
+        height: 200px;
+        width: 340px;
+    }
+
+    #comment{
+        height: 750px;
+        width: 350px;
+        position: fixed;
+        left: 4px;
+        bottom: 0px;
+       border-top-right-radius: 10px;
+       border-top-left-radius: 10px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #xx{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 70px;
+        width: 349px;
+        border-top: 0.5px solid rgb(180, 178, 178);
+        border-bottom: 0.5px solid rgb(180, 178, 178);
+        margin-top: 20px;
+       position: relative;
+       top: 200px;
+      cursor: pointer;
+       
+    }
+
+    #response{
+        width: 350px;
+        min-height: 300px;
+        margin-top: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+
+    #blog{
+        flex-direction: column;
+        margin-top: -30px;
+    }
+
+    #top{
+
+        height: 25px;
+        width: 25px;
+        border-radius: 20px;
+       position: relative;
+       top: 20px;
+       left: -120px;
+    
+        
+    }
+
+    #xx h3{
+        font-weight: 400;
+        font-size: 16px;
+        position: relative;
+        top: 15px;
+        right: 115px;
+    }
+    
+    #xx h4{
+        font-weight: 500;
+        font-size: 16px;
+        position: relative;
+        bottom: 20px;
+        right: 105px;
+    }
+    
+    #zs{
+        position: relative;
+       top: 80px;
+        left: 0px;
+   
+    }
+    
+    #area{
+   
+       width: 340px;
+
+    }
+
+    #content p{
+        padding: 15px;
+    }
+
+    
+    
+    
+    
 }

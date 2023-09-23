@@ -1,20 +1,36 @@
 import './navbar.css'
 import Side from '../sidebar/Side'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import checkcontext from '../../context/checkcontext';
 import { Link } from 'react-router-dom';
 function Navbar () {
 
     const a = useContext(checkcontext);
+    const [dep, ped] = useState(1);
 
     const io = () => {
         a.openlog()
     }
 
+    const opensidemenu = () => {
+        ped((prev) => prev+1);
+
+        if(dep%2 === 0 ){
+            a.openside(0);
+
+        }
+
+        else {
+            a.openside(1);
+        }
+      
+    }
+
     return(
         <div id="bar">
 
-            <h1 id='nest'>BlogNest</h1>
+            
+            <Link className='lona'  to={'/'}><h1 id='nest'>BlogNest</h1></Link>
 
             <ul id='tags'>
                 <Link className='lona'  to={'/'}><li>For You</li></Link>
@@ -41,7 +57,7 @@ function Navbar () {
 
             <button id='but' onClick={io}>Login</button>
 
-            <div id="menu">
+            <div id="menu" onClick={opensidemenu}>
                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="black" className="bi bi-list" viewBox="0 0 16 16">
                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                </svg>

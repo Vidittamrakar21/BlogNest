@@ -57,3 +57,26 @@
     color: black;
     font-weight: 500;
 }
+
+@media only screen and (max-width:600px){
+    #box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 480px;
+        width: 347px;
+        /* border: 1px solid rgb(104, 103, 103); */
+        border-bottom: 1px solid rgb(163, 162, 162);
+        user-select: none;
+        background-color: rgb(238, 235, 235);
+        margin-top: 30px;
+    }
+    
+    #foto{
+        width: 347px;
+        height: 250px;
+        border: 1px solid black;
+    
+    }
+}

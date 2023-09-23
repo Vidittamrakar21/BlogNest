@@ -105,3 +105,17 @@
     text-decoration: none;
     color: black;
 }
+
+@media only screen and (max-width: 600px){
+    #tags{
+        display: none;
+    }
+
+    #menu{
+        display: flex;
+    }
+
+    #butter{
+        display: none;
+    }
+}

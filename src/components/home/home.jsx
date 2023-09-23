@@ -6,7 +6,7 @@ function Home (){
     return (
         <div id='home'>
            <div id="latest">
-            <h1 className='juu'>Latest</h1>
+            <h1 className='juu'>For You</h1>
            
            <Latest></Latest>
             <Latest></Latest>
