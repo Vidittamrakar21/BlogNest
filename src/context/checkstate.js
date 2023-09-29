@@ -6,6 +6,7 @@ const Checkstate = (props) =>{
     const [log, logit] = useState(false);
     const [com, comit] = useState(false);
     const [side, oside] = useState(false);
+    const [value, savevalue] = useState("");
 
 
     const openlog = () => {
@@ -36,10 +37,13 @@ const Checkstate = (props) =>{
     
     }
    
+    const saveblog = (v) =>{
+        savevalue(v);
+    }
     
 
    return (
-    <Checkcontext.Provider value={{openlog, closelog,opencom,closecom,openside,side,com,log}}>
+    <Checkcontext.Provider value={{openlog, closelog,opencom,closecom,openside,saveblog,savevalue,value,side,com,log}}>
         {props.children}
     </Checkcontext.Provider>
    ); 

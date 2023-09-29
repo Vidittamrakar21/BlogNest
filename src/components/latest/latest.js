@@ -3,6 +3,7 @@ import './latest.css';
 
 
 function Latest(){
+    
     return(
        <Link className='lona' to={'/blog'}> <div id='box'>
        <div id="foto">

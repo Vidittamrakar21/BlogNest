@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  
+    margin-left: -130px;
 }
 
 
@@ -211,6 +211,13 @@ textarea{
 
 
 @media only screen and (max-width: 600px){
+    #blog{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       margin-left: 0px;
+    }
+    
     #card{
         min-height: 750px;
         width: 340px;
