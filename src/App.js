@@ -30,11 +30,11 @@ function App() {
           <Route exact path='/profile' element={<><Profile/>  <Login></Login> </>}></Route> 
           
                  
-          <Route exact path='/blog' element={<><Blog/> <Login></Login> <Footer></Footer></>}></Route>
+          <Route exact path='/blog/:id' element={<><Blog/> <Login></Login> <Footer></Footer></>}></Route>
 
           <Route exact path='/write' element={<><Write/>  <Footer></Footer></>}></Route>  
 
-          <Route exact path='/user' element={<><User/>  <Footer></Footer></>}></Route>  
+          <Route  path='/user' element={<><User/>  <Footer></Footer></>}></Route>  
 
         </Routes>  
        

@@ -15,7 +15,7 @@
     justify-content: center;
     flex-direction: column;
     width: 800px;
-    min-height: 600px;
+    min-height: 800px;
     margin-top: 40px;
     margin-right: 450px;
   
@@ -72,7 +72,7 @@
         justify-content: center;
         flex-direction: column;
         width: 350px;
-        min-height: 600px;
+        min-height: 750px;
         margin-top: 30px;
         margin-right: 0px;
       

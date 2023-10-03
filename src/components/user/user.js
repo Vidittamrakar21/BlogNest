@@ -10,7 +10,7 @@ function User () {
                         </div>
                         <div id='ff'>
                            <h2>@Vidit Tamrakar</h2>
-                            <button id="follow">Follow</button>
+                            {/* <button id="follow">Follow</button> */}
                         </div>
                     </div>
 

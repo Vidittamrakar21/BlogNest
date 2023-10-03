@@ -1,10 +1,29 @@
 import './blog.css'
-import { useContext } from 'react';
+import { useContext,useState,useEffect } from 'react';
 import checkcontext from '../../context/checkcontext';
-import {Link} from 'react-router-dom';
+import {Link,useParams} from 'react-router-dom';
+import axios from 'axios';
+import MoonLoader from "react-spinners/MoonLoader";
+
 
 function Blog () {
     const a = useContext(checkcontext);
+    const {id} = useParams();
+    const [data, showdata] = useState("");
+    const [loading, isloading] = useState(true);
+
+    const showpost = async () =>{
+     const show = await(await axios.get(`http://localhost:8080/api/oneb/${id}`)).data;
+        if(show){
+            showdata(show);
+            isloading(false);
+         }
+    }
+
+    useEffect(()=> {
+        showpost()
+    },[])
+
     const comments = [{name: "Vidit", com: "Nice blog! "},{name: "Varun", com: "excellent blog! "},{name: "Rithuik", com: "hey guys!! "},{name: "JUnaid", com: "Great work "}];
 
     const io = () => {
@@ -18,13 +37,15 @@ function Blog () {
     return (
         <>
         <div id="blog">
-        <Link className='lona'  to={'/user'}><h5 id='zs'>By @<span id='byy'>Vidit Tamrakar</span></h5></Link>
-            <div id="card">
+
+        <MoonLoader color="#36d7b7" loading={loading} />
+
+           {!loading &&  <div id="card">
                 <div id="fro">
-                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/4/FR/KN/OX/55284628/python-programming-online-course-500x500.jpeg" alt="" />
+                    <img src= {data.image} alt="" />
                 </div>
 
-                <div id="content" dangerouslySetInnerHTML={{__html: a.value}} />
+                <div id="content" dangerouslySetInnerHTML={{__html: data.content}} />
                   
 
                 <div id="operate">
@@ -48,11 +69,12 @@ function Blog () {
                     <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                     </svg>
                     </div>
+              <Link className='lona'  to={'/user'}><h5 id='zs'>By @<span id='byy'>{data.createdby}</span></h5></Link>
                 </div>
 
          
 
-            </div>
+            </div>}
 
 
 
