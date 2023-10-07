@@ -1,9 +1,17 @@
 import './navbar.css'
 import Side from '../sidebar/Side'
-import { useContext, useState } from 'react';
+import { useContext, useState,useEffect } from 'react';
 import checkcontext from '../../context/checkcontext';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 function Navbar () {
+
+    let location = useLocation();
+
+    useEffect(() => {
+        console.log(location.pathname);
+      }, [location]);
 
     const a = useContext(checkcontext);
     const [dep, ped] = useState(1);
@@ -33,12 +41,12 @@ function Navbar () {
             <Link className='lona'  to={'/'}><h1 id='nest'>BlogNest</h1></Link>
 
             <ul id='tags'>
-                <Link className='lona'  to={'/'}><li>For You</li></Link>
-                <Link className='lona' to={'/'}><li>Lifestyle</li></Link>
-                <Link className='lona' to={'/'}><li>Tech</li></Link>
-                <Link className='lona' to={'/'}><li>Food</li></Link>
-                <Link className='lona' to={'/'}><li>Entrepreneurship</li></Link>
-                <Link className='lona' to={'/profile'}> <li>Profile</li></Link>
+                <Link className={`lona ${location.pathname === '/' ? "active" : ""}`}  to={'/'}><li>For You</li></Link>
+                <Link className={`lona ${location.pathname === '/life' ? "active" : ""}`} to={'/life'}><li>Lifestyle</li></Link>
+                <Link className={`lona ${location.pathname === '/tech' ? "active" : ""}`} to={'/tech'}><li>Tech</li></Link>
+                <Link className={`lona ${location.pathname === '/food' ? "active" : ""}`} to={'/food'}><li>Food</li></Link>
+                <Link className={`lona ${location.pathname === '/entre' ? "active" : ""}`} to={'/entre'}><li>Entrepreneurship</li></Link>
+                <Link className={`lona ${location.pathname === '/profile' ? "active" : ""}`} to={'/profile'}> <li>Profile</li></Link>
                 
             </ul>
 

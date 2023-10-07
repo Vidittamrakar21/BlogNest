@@ -86,7 +86,7 @@ function Profile () {
 
             {save && <div id='rakh'>
                 <h2>Blogs Saved By You</h2>
-                <Latest></Latest>
+                <Latest ></Latest>
                 
                 </div>}
                

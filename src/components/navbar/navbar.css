@@ -43,6 +43,8 @@
     color: #578976;
 }
 
+
+
 #bar input{
     width: 195px;
     height: 30px;
@@ -104,6 +106,11 @@
 .lona{
     text-decoration: none;
     color: black;
+}
+
+.active{
+    color: #578976;
+    text-decoration: underline;
 }
 
 @media only screen and (max-width: 600px){

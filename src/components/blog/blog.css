@@ -72,16 +72,17 @@ textarea{
 
 #response{
     width: 380px;
-    min-height: 300px;
-    
-  
-    margin-top: 250px;
+    height: 400px;
+    border: 0.5px solid rgb(147, 147, 147);
+    border-radius: 12px;
+    margin-top: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
     overflow-y: scroll;
+   
 }
 
 ::-webkit-scrollbar{
@@ -93,13 +94,13 @@ textarea{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 70px;
+    min-height: 80px;
     width: 379px;
     border-top: 0.5px solid rgb(180, 178, 178);
     border-bottom: 0.5px solid rgb(180, 178, 178);
     margin-top: 20px;
    position: relative;
-   top: 200px;
+   top: 10px;
   cursor: pointer;
    
 }
@@ -117,7 +118,8 @@ textarea{
     font-size: 16px;
     position: relative;
     bottom: 20px;
-    right: 125px;
+    right: 0px;
+    word-wrap: break-word;
 }
 
 .hide{
@@ -267,7 +269,7 @@ textarea{
         border-bottom: 0.5px solid rgb(180, 178, 178);
         margin-top: 20px;
        position: relative;
-       top: 200px;
+       top: 20px;
       cursor: pointer;
        
     }
@@ -314,7 +316,8 @@ textarea{
         font-size: 16px;
         position: relative;
         bottom: 20px;
-        right: 105px;
+        right: 0px;
+        word-wrap: break-word;
     }
     
     /* #zs{

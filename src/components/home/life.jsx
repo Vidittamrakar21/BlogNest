@@ -7,7 +7,7 @@ import MoonLoader from "react-spinners/MoonLoader";
 
 
 
-function Home (){
+function Life (){
 
     
     const [data, setdata] = useState([]);
@@ -15,7 +15,7 @@ function Home (){
     const [loading, isloading] = useState(true);
 
     const start = async () => {
-        const data = await (await axios.get('http://localhost:8080/api/blogs')).data;
+        const data = await (await axios.get('http://localhost:8080/api/blogs/life')).data;
         if(data){
             setdata(data);
             isloading(false);
@@ -39,7 +39,7 @@ function Home (){
     return (
         <div id='home'>
            <div id="latest">
-            <h1 className='juu'>For You</h1>
+            <h1 className='juu'>Lifestyle</h1>
  
             <MoonLoader color="#2b2b2b" loading={loading} />
            
@@ -66,4 +66,4 @@ function Home (){
     )
 }
 
-export default Home;
+export default Life;
