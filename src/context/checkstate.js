@@ -25,16 +25,15 @@ const Checkstate = (props) =>{
         comit(false);
     }
 
-    const openside = (x) => {
-       if(x === 0){
-           oside(true);
-          
+    const openside = () => {
+        
+        oside(true);
 
-       }
-       else if(x === 1){
+    }
+    const closeside = () => {
+        
         oside(false);
-       }
-    
+
     }
    
     const saveblog = (v) =>{
@@ -43,7 +42,7 @@ const Checkstate = (props) =>{
     
 
    return (
-    <Checkcontext.Provider value={{openlog, closelog,opencom,closecom,openside,saveblog,savevalue,value,side,com,log}}>
+    <Checkcontext.Provider value={{openlog, closelog,opencom,closecom,openside, closeside,saveblog,savevalue,value,side,com,log}}>
         {props.children}
     </Checkcontext.Provider>
    ); 
