@@ -123,6 +123,26 @@
     }
 
     #butter{
-        display: none;
+        display: flex;
+        position: fixed;
+        top: 50px;
+       
+        left: 0;
+    }
+
+    #bar input{
+        width: 264px;
+        height: 38px;
+    }
+    
+    
+    #ser{
+        height: 38px;
+        width: 95px;
+        background-color: #5C8374;
+        border: none;
+        color: white;
+        cursor: pointer;
+    
     }
 }

@@ -220,13 +220,14 @@ textarea{
         justify-content: center;
        margin-left: 0px;
        min-height: 750px;
+       
     }
     
     #card{
         min-height: 750px;
         width: 340px;
         background-color: white;
-        margin-top: 75px;
+        margin-top: 135px;
         display: flex;
         align-items: center;
         justify-content: center;

@@ -48,6 +48,7 @@
     align-items: center;
     flex-direction: column;
    background-color: white;
+   margin-top: 25px;
 }
 
 #editor{

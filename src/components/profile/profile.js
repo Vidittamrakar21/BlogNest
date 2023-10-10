@@ -28,6 +28,17 @@ function Profile () {
         isedit(false);
     }
 
+    const showfile = (e) => {
+        console.log(e.target.files[0])
+        const file = e.target.files[0];
+       const reader  = new FileReader();
+       reader.addEventListener("load", ()=>{
+        console.log(reader.result);
+       })
+
+       reader.readAsDataURL(file);
+    }
+
 
     return(
         <div id="pro">
@@ -46,7 +57,7 @@ function Profile () {
                             <img src="/images/vid.jpg" alt="" />
                         </div>
                         <h3>Update Profile Photo</h3>
-                        <input type="file" accept='image/*' id='file' placeholder='photo'/>
+                        <input type="file" accept='image/*' id='file' placeholder='photo' onChange={showfile}/>
                         <label for="file">
                             Upload
                         </label>
@@ -86,7 +97,7 @@ function Profile () {
 
             {save && <div id='rakh'>
                 <h2>Blogs Saved By You</h2>
-                <Latest ></Latest>
+                {/* <Latest></Latest> */}
                 
                 </div>}
                

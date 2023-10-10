@@ -25,10 +25,10 @@ function User () {
                     </div>
                 </div>
                 <div id="posts">
+                    {/* <Latest></Latest>
                     <Latest></Latest>
                     <Latest></Latest>
-                    <Latest></Latest>
-                    <Latest></Latest>
+                    <Latest></Latest> */}
                 </div>
         </div>
     )

@@ -1,10 +1,14 @@
 import './login.css';
-import{useState , useContext} from 'react';
+import{useState , useContext, useRef} from 'react';
 import checkcontext from '../../context/checkcontext';
-
+import axios from 'axios';
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 function Login(){
+
+    const [loading, isloading] = useState(false);
+
     const a = useContext(checkcontext);
 
     const [open, openit] = useState(false);
@@ -21,6 +25,70 @@ function Login(){
         a.closelog();
     } 
 
+    const uname = useRef();
+    const mail = useRef();
+    const pass = useRef();
+    const confirmpass = useRef();
+
+    const apass = useRef();
+    const amail = useRef();
+
+    const registeruser = async () =>{
+        isloading(true);
+        if(pass.current.value !== confirmpass.current.value){
+            
+            isloading(false);
+            const stopload = () =>{
+                alert("Confirm password dosen't matches with the entered password!");
+                uname.current.value="";
+                mail.current.value="";
+                pass.current.value="";
+                confirmpass.current.value="";
+            }
+
+            setTimeout(stopload,800);
+            
+        }
+
+        else{
+            const user  = await(await axios.post('http://localhost:8080/api/register', {name: uname.current.value, email: mail.current.value, password: confirmpass.current.value})).data;
+            if(user){
+                
+                isloading(false);
+                const stopload = () =>{
+                    alert(user.message);
+                    uname.current.value="";
+                    mail.current.value="";
+                    pass.current.value="";
+                    confirmpass.current.value="";
+                }
+
+                setTimeout(stopload,800);
+                
+            }
+        }
+
+    }
+
+    const loginuser = async () => {
+        isloading(true);
+        const user  = await(await axios.post('http://localhost:8080/api/login', { email: amail.current.value, password: apass.current.value})).data;
+            if(user){
+                
+                isloading(false);
+                const stopload = () =>{
+                    alert(user.message);
+                    
+                    amail.current.value="";
+                    apass.current.value="";
+
+                }
+
+                setTimeout(stopload,800);
+                
+            }
+    }
+
 
 
    return(
@@ -33,9 +101,10 @@ function Login(){
              </svg>
             </div>
             <h2>Log In To Continue</h2>
-            <input type="text" className="inp" placeholder='&nbsp;Enter Email'/>
-            <input type="text" className="inp" placeholder='&nbsp;Enter Password'/>
-            <button id="put">Log In</button>
+            <input type="text" className="inp" placeholder='&nbsp;Enter Email' ref={amail}/>
+            <input type="text" className="inp" placeholder='&nbsp;Enter Password' ref={apass}/>
+            <button id="put" onClick={loginuser}>Log In</button>
+            <ClipLoader color="#36bdd6" loading={loading} cssOverride={{ position: 'absolute', bottom: '70px'}}/>
             <div id="rem">
                 <h5>Remember My Login ?</h5>
                 <input type="checkbox" checked={true} />
@@ -53,12 +122,12 @@ function Login(){
              </svg>
             </div>
             <h2>Create an account</h2>
-            <input type="text" className="inp" placeholder='&nbsp;Enter Name'/>
-            <input type="text" className="inp" placeholder='&nbsp;Enter Email'/>
-            <input type="text" className="inp" placeholder='&nbsp;Enter Password'/>
-            <input type="text" className="inp" placeholder='&nbsp; Confirm Password'/>
-            <button id="put">Sign Up</button>
-            
+            <input type="text" className="inp" placeholder='&nbsp;Enter Name' ref={uname}/>
+            <input type="text" className="inp" placeholder='&nbsp;Enter Email' ref={mail}/>
+            <input type="text" className="inp" placeholder='&nbsp;Enter Password' ref={pass}/>
+            <input type="text" className="inp" placeholder='&nbsp; Confirm Password' ref={confirmpass}/>
+            <button id="put" onClick={registeruser}>Sign Up</button>
+            <ClipLoader color="#36bdd6" loading={loading} cssOverride={{ position: 'absolute', bottom: '60px'}}/>
             <div id='noac'>
             <h5 onClick={displaylog}>Already  have an account ? <br /><span> Log In</span></h5>
          
