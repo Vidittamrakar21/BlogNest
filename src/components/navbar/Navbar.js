@@ -1,11 +1,14 @@
 import './navbar.css'
 import Side from '../sidebar/Side'
-import { useContext, useState,useEffect } from 'react';
+import { useContext, useState,useEffect,useRef } from 'react';
 import checkcontext from '../../context/checkcontext';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Navbar () {
+
+    const navigate = useNavigate();
 
     let location = useLocation();
 
@@ -34,6 +37,36 @@ function Navbar () {
       
     }
 
+    const item = useRef();
+
+    const searchitem = () => {
+        navigate('/search');
+    }
+
+    const search = async () => {
+        a.loader(true);
+        const pro = await (await axios.post('http://localhost:8080/api/search',{searchval: item.current.value})).data;
+        if(pro){
+            if(pro.message === "Search by any topic name in the bar, to find blogs related to that !"){
+                alert(pro.message);
+                a.loader(false);
+            }
+
+            else if(pro.message === "empty"){
+                a.storeblog(1);
+                a.loader(false);
+            }
+
+            else{
+                a.loader(false);
+                a.storeblog(pro)
+                console.log(a.bdata);
+                item.current.value="";
+            }
+        }
+
+    }
+
     return(
         <div id="bar">
 
@@ -50,9 +83,9 @@ function Navbar () {
                 
             </ul>
 
-            <div id='butter'>
-            <input type="search" placeholder='Search by topic, user..'/>
-            <button id='ser'>Search</button>
+            <div id='butter' onClick={searchitem}>
+            <input type="search" placeholder='&nbsp;Search by topic, user..' ref={item}/>
+            <button id='ser' onClick={search}>Search</button>
             </div>
 
             <Link className='lona' to={'/write'}><div id="write">

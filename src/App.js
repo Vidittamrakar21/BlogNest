@@ -13,6 +13,7 @@ import Life from './components/home/life';
 import Tech from './components/home/tech';
 import Food from './components/home/food';
 import Entre from './components/home/entre';
+import Search from './components/search/search';
 import {
 	BrowserRouter as Router,
 	Routes,
@@ -36,6 +37,7 @@ function App() {
           <Route exact path='/food' element={<><Food/>  <Login></Login> </>}></Route> 
           <Route exact path='/entre' element={<><Entre/>  <Login></Login> </>}></Route> 
           <Route exact path='/profile' element={<><Profile/>  <Login></Login> </>}></Route> 
+          <Route exact path='/search' element={<><Search/>  <Login></Login> <Footer></Footer></>}></Route> 
           
                  
           <Route exact path='/blog/:id' element={<><Blog/> <Login></Login> <Footer></Footer></>}></Route>

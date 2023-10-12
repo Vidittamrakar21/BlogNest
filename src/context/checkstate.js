@@ -7,6 +7,9 @@ const Checkstate = (props) =>{
     const [com, comit] = useState(false);
     const [side, oside] = useState(false);
     const [value, savevalue] = useState("");
+    const [bdata, store] = useState([]);
+    const [loading, isloading] = useState(false);
+
 
 
     const openlog = () => {
@@ -39,10 +42,18 @@ const Checkstate = (props) =>{
     const saveblog = (v) =>{
         savevalue(v);
     }
+
+    const storeblog = (data) => {
+        store(data);
+    }
+
+    const loader = (x) =>{
+        isloading(x)
+    }
     
 
    return (
-    <Checkcontext.Provider value={{openlog, closelog,opencom,closecom,openside, closeside,saveblog,savevalue,value,side,com,log}}>
+    <Checkcontext.Provider value={{openlog, closelog,opencom,closecom,openside, closeside,saveblog,savevalue, storeblog,store,loader,loading,bdata,value,side,com,log}}>
         {props.children}
     </Checkcontext.Provider>
    ); 
