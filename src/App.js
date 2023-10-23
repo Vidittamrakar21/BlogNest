@@ -1,5 +1,6 @@
 
 import './App.css';
+import { useEffect } from 'react';
 import Navbar from './components/navbar/Navbar';
 import Home from './components/home/home';
 import Login from './components/login/login';
@@ -14,14 +15,37 @@ import Tech from './components/home/tech';
 import Food from './components/home/food';
 import Entre from './components/home/entre';
 import Search from './components/search/search';
+
 import {
 	BrowserRouter as Router,
 	Routes,
 	Route
 } from 'react-router-dom';
+import axios from 'axios';
+
 
 
 function App() {
+
+  const checkccokie = async () => {
+   const check = await(await axios.get('/check')).data;
+   if(check){
+    if(check.message === 'declined'){
+      alert("login first")
+    }
+
+    else{
+      console.log(check);
+    }
+   }
+    
+  }
+
+  useEffect(()=> {
+    checkccokie()
+  },[])
+  
+
   return (
     <Router>
 

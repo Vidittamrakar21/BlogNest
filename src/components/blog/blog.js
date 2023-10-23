@@ -14,11 +14,15 @@ function Blog () {
     const [allcom, iscom] = useState([]);
 
     const showpost = async () =>{
-     const show = await(await axios.get(`http://localhost:8080/api/oneb/${id}`)).data;
+     const show = await(await axios.get(`/api/oneb/${id}`)).data;
         if(show){
+            if(show.message){
+                alert(show.message);
+            }
             showdata(show);
             isloading(false);
             iscom(show.comments);
+            
           
          }
     }

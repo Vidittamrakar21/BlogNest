@@ -14,7 +14,7 @@ function Home (){
     const [data, setdata] = useState([]);
     const [moredata, fetchmore] = useState([]);
     const [tdata, givedata] = useState([]);
-    const [loading, isloading] = useState(true);
+    const [loading, isloading] = useState(false);
     const [num, inc] = useState(1);
     const [set, isset] =  useState([]);
     const [full, isfull] =  useState(true);
@@ -29,6 +29,8 @@ function Home (){
             setdata(data.concat(bdata));
             inc((prev)=> prev+1);
             isloading(false);
+            
+            
         }
 
         

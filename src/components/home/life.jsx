@@ -15,7 +15,7 @@ function Life (){
     const [loading, isloading] = useState(true);
 
     const start = async () => {
-        const data = await (await axios.get('http://localhost:8080/api/blogs/life')).data;
+        const data = await (await axios.get('/api/blogs/life')).data;
         if(data){
             setdata(data);
             isloading(false);
