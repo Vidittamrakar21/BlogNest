@@ -17,7 +17,7 @@ function Write () {
     const btype = useRef();
 
     const post = async () => {
-     const data = await (await axios.post('http://localhost:8080/api/post',{title: title.current.value, image: url.current.value, btype: btype.current.value,content: value, createdby: "vidit.dev"})).data;
+     const data = await (await axios.post('/api/post',{title: title.current.value, image: url.current.value, btype: btype.current.value,content: value, createdby: "vidit.dev"})).data;
      if(data){
         alert(data.message);
         console.log(data.blog);

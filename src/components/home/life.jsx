@@ -1,13 +1,35 @@
 import './home.css'
 import Latest from '../latest/latest';
 import Trend from '../trend/trend';
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useContext } from 'react';
 import axios from 'axios';
 import MoonLoader from "react-spinners/MoonLoader";
+import checkcontext from '../../context/checkcontext';
 
 
 
 function Life (){
+
+    const a = useContext(checkcontext);
+
+
+  const checkccokie = async () => {
+   const check = await(await axios.get('/check')).data;
+   if(check){
+    if(check.message === 'declined'){
+      a.openlog()
+    }
+
+    else{
+      console.log(check);
+      a.closelog();
+    }
+   } 
+  }
+
+  useEffect(()=> {
+    checkccokie()
+  },[])
 
     
     const [data, setdata] = useState([]);
@@ -24,7 +46,7 @@ function Life (){
     }
 
     const trend = async () => {
-        const data = await (await axios.get('http://localhost:8080/api/trend')).data;
+        const data = await (await axios.get('/api/trend')).data;
         if(data){
             givedata(data);
         }

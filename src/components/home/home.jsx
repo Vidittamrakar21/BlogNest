@@ -1,14 +1,36 @@
 import './home.css'
 import Latest from '../latest/latest';
 import Trend from '../trend/trend';
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useContext } from 'react';
 import axios from 'axios';
 import MoonLoader from "react-spinners/MoonLoader";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ClipLoader from "react-spinners/ClipLoader";
+import checkcontext from '../../context/checkcontext';
 
 
 function Home (){
+
+    const a = useContext(checkcontext);
+
+
+  const checkccokie = async () => {
+   const check = await(await axios.get('/check')).data;
+   if(check){
+    if(check.message === 'declined'){
+      a.openlog()
+    }
+
+    else{
+      console.log(check);
+      a.closelog();
+    }
+   } 
+  }
+
+  useEffect(()=> {
+    checkccokie()
+  },[])
 
     
     const [data, setdata] = useState([]);
@@ -20,7 +42,7 @@ function Home (){
     const [full, isfull] =  useState(true);
 
     const start = async () => {
-        const bdata = await (await axios.get(`http://localhost:8080/api/blogs?limit=4&page=${num}`)).data;
+        const bdata = await (await axios.get(`/api/blogs?limit=4&page=${num}`)).data;
        
         if(bdata){
             if((data.length >0) && (set.length>0) && (data.length=== set.length)){
@@ -37,12 +59,12 @@ function Home (){
     }
 
     const count = async () => {
-        const pydata = await (await axios.get('http://localhost:8080/api/all')).data;
+        const pydata = await (await axios.get('/api/all')).data;
         isset(pydata);
     }
 
     const trend = async () => {
-        const data = await (await axios.get('http://localhost:8080/api/trend')).data;
+        const data = await (await axios.get('/api/trend')).data;
         if(data){
             givedata(data);
         }
@@ -51,7 +73,7 @@ function Home (){
     const fetchmoredata = async () => {
         
         
-        const info = await (await axios.get(`http://localhost:8080/api/blogs?limit=10&page=${num}`)).data;
+        const info = await (await axios.get(`/api/blogs?limit=10&page=${num}`)).data;
            
             fetchmore(info);
             setdata(data.concat(info));

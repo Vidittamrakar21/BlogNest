@@ -51,7 +51,7 @@ function Login(){
         }
 
         else{
-            const user  = await(await axios.post('http://localhost:8080/api/register', {name: uname.current.value, email: mail.current.value, password: confirmpass.current.value})).data;
+            const user  = await(await axios.post('/api/register', {name: uname.current.value, email: mail.current.value, password: confirmpass.current.value})).data;
             if(user){
                 
                 isloading(false);
@@ -72,7 +72,7 @@ function Login(){
 
     const loginuser = async () => {
         isloading(true);
-        const user  = await(await axios.post('http://localhost:8080/api/login', { email: amail.current.value, password: apass.current.value})).data;
+        const user  = await(await axios.post('/api/login', { email: amail.current.value, password: apass.current.value})).data;
             if(user){
                 
                 isloading(false);

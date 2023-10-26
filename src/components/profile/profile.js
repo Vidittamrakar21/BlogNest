@@ -2,9 +2,32 @@ import './profile.css';
 import Latest from '../latest/latest';
 import Footer from '../footer/Footer';
 import User from '../user/user';
-import { useState } from 'react';
+import { useState,useContext,useEffect } from 'react';
+import axios from 'axios';
+import checkcontext from '../../context/checkcontext';
 
 function Profile () {
+
+    const a = useContext(checkcontext);
+
+
+    const checkccokie = async () => {
+     const check = await(await axios.get('/check')).data;
+     if(check){
+      if(check.message === 'declined'){
+        a.openlog()
+      }
+  
+      else{
+        console.log(check);
+        a.closelog();
+      }
+     } 
+    }
+  
+    useEffect(()=> {
+      checkccokie()
+    },[])
 
     const [edit, isedit] = useState(false);
     const [save, osave] = useState(false);

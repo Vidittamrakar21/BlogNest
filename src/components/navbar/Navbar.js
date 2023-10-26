@@ -45,7 +45,7 @@ function Navbar () {
 
     const search = async () => {
         a.loader(true);
-        const pro = await (await axios.post('http://localhost:8080/api/search',{searchval: item.current.value})).data;
+        const pro = await (await axios.post('/api/search',{searchval: item.current.value})).data;
         if(pro){
             if(pro.message === "Search by any topic name in the bar, to find blogs related to that !"){
                 alert(pro.message);

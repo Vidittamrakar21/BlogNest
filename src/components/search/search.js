@@ -4,6 +4,7 @@ import '../latest/latest.css'
 import { useState, useContext,useEffect } from 'react';
 import checkcontext from '../../context/checkcontext';
 import ClipLoader from "react-spinners/ClipLoader";
+import axios from 'axios';
 
 
 function Search () {
@@ -13,6 +14,27 @@ function Search () {
     const filldata = () => {
         savedata(a.bdata);
     }
+
+    
+
+
+  const checkccokie = async () => {
+   const check = await(await axios.get('/check')).data;
+   if(check){
+    if(check.message === 'declined'){
+      a.openlog()
+    }
+
+    else{
+      console.log(check);
+      a.closelog();
+    }
+   } 
+  }
+
+  useEffect(()=> {
+    checkccokie()
+  },[])
 
     
 
