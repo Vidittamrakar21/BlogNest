@@ -1,14 +1,36 @@
 import './write.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { useState,useContext,useRef } from 'react';
+import { useState,useContext,useRef,useEffect } from 'react';
 import checkcontext from '../../context/checkcontext';
 import axios from 'axios';
 
 
 function Write () {
 
+    const [name, setname] = useState("");
+    const [allow, setallow] = useState(false);
+    
     const a = useContext(checkcontext);
+    const checkccokie = async () => {
+        const check = await(await axios.get('/check')).data;
+        if(check){
+         if(check.message === 'declined'){
+          console.log("unauthorized")
+          setallow(false)
+         }
+     
+         else{
+           console.log(check);
+          setname(check.name);
+          setallow(true)
+         }
+        } 
+       }
+
+       useEffect(()=> {
+        checkccokie()
+      },[])
 
     const [value, setvalue] = useState("");
 
@@ -17,11 +39,17 @@ function Write () {
     const btype = useRef();
 
     const post = async () => {
-     const data = await (await axios.post('/api/post',{title: title.current.value, image: url.current.value, btype: btype.current.value,content: value, createdby: "vidit.dev"})).data;
-     if(data){
-        alert(data.message);
-        console.log(data.blog);
-     }
+        if(allow){
+            const data = await (await axios.post('/api/post',{title: title.current.value, image: url.current.value, btype: btype.current.value,content: value, createdby: name})).data;
+            if(data){
+               alert(data.message);
+               console.log(data.blog);
+            }
+        }
+
+        else{
+            alert("Kindly login first, to continue!")
+        }
     }
 
 

@@ -14,6 +14,7 @@ function Blog () {
     const [allcom, iscom] = useState([]);
     const [name, setname] = useState("");
     const [uid, setuid] = useState("");
+    const [allow, setallow] = useState(false);
 
     const showpost = async () =>{
      const show = await(await axios.get(`/api/oneb/${id}`)).data;
@@ -36,6 +37,7 @@ function Blog () {
    if(check){
     if(check.message === 'declined'){
       a.openlog()
+      setallow(false);
     }
 
     else{
@@ -43,6 +45,7 @@ function Blog () {
       setname(check.name)
       setuid(check.id)
       a.closelog();
+      setallow(true)
     }
    } 
   }
@@ -75,19 +78,49 @@ function Blog () {
     }
 
     const postcomment = async () =>{
-       console.log(id);
+      
+       if(allow){
         const comment = await(await axios.post('/api/postcomment', {id: id, com: mes , by: name})).data;
         if(comment){
             alert(comment.message);
         }
+       }
+
+       else{
+        alert("Kindly login first, to continue!")
+       }
     }
 
     const dolike = async () =>{
        
+       if(allow){
         const like = await(await axios.post('/api/postlike', {uid: uid, bid: id})).data;
         if (like.message){
             alert(like.message)
         }
+       }
+
+       else{
+        alert("Kindly login first, to continue!")
+       }
+
+
+    }
+
+    const dosave = async () =>{
+       
+        if(allow){
+            const pp = await(await axios.post('/api/save', {uid: uid, bid: id})).data;
+        if (pp.message){
+            alert(pp.message)
+        }
+        }
+
+        else{
+            alert("Kindly login first, to continue!")
+           }
+
+
     }
 
    
@@ -122,7 +155,7 @@ function Blog () {
                       <h5>{allcom.length}</h5>
                     </div>
 
-                    <div id="save" className='vi'>
+                    <div id="save" className='vi' onClick={dosave}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-bookmark" viewBox="0 0 16 16">
                     <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                     </svg>
