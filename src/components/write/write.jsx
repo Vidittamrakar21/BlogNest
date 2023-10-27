@@ -9,6 +9,7 @@ import axios from 'axios';
 function Write () {
 
     const [name, setname] = useState("");
+    const [id, setid] = useState("");
     const [allow, setallow] = useState(false);
     
     const a = useContext(checkcontext);
@@ -23,7 +24,8 @@ function Write () {
          else{
            console.log(check);
           setname(check.name);
-          setallow(true)
+          setid(check.id);
+          setallow(true);
          }
         } 
        }
@@ -40,7 +42,7 @@ function Write () {
 
     const post = async () => {
         if(allow){
-            const data = await (await axios.post('/api/post',{title: title.current.value, image: url.current.value, btype: btype.current.value,content: value, createdby: name})).data;
+            const data = await (await axios.post('/api/post',{title: title.current.value, image: url.current.value, btype: btype.current.value,content: value, createdby: name, userid: id})).data;
             if(data){
                alert(data.message);
                console.log(data.blog);

@@ -24,6 +24,7 @@ function Home (){
     else{
       console.log(check);
       a.closelog();
+      localStorage.setItem("userId", check.id)
     }
    } 
   }

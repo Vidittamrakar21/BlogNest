@@ -1,6 +1,7 @@
 import Latest from "../latest/latest";
 
-function User () {
+function User (props) {
+    const num = props.blogs
     return (
         <div id="nand">
             <div id="about">
@@ -9,20 +10,21 @@ function User () {
                             <img src="/images/vid.jpg" alt="" />
                         </div>
                         <div id='ff'>
-                           <h2>@Vidit Tamrakar</h2>
+                           <h2>@{props.name}</h2>
                             {/* <button id="follow">Follow</button> */}
                         </div>
                     </div>
 
-                    <div id="num">
-                        <h3>104 Followers</h3>
-                        <h3>4 Blogs Posted</h3>
-                    </div>
-
                     <div id="me">
                         <h3>About Me</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt praesentium deleniti fuga atque necessitatibus, ratione modi adipisci iusto distinctio rem, odit quo! Atque possimus fugit expedita. Iure quo amet enim molestias dignissimos dolor quia tenetur, odit illo ipsam accusantium provident esse blanditiis voluptatem neque tempora perspiciatis asperiores vero facilis. Itaque.</p>
+                        <p>{props.about? `${props.about}`: "Write something about yourself !"}</p>
                     </div>
+
+                    <div id="num">
+                        {/* <h3>104 Followers</h3> */}
+                        <h3>Blogs posted</h3>
+                    </div>
+                    
                 </div>
                 <div id="posts">
                     {/* <Latest></Latest>

@@ -2,13 +2,15 @@ import './profile.css';
 import Latest from '../latest/latest';
 import Footer from '../footer/Footer';
 import User from '../user/user';
-import { useState,useContext,useEffect } from 'react';
+import { useState,useContext,useEffect,useRef } from 'react';
 import axios from 'axios';
 import checkcontext from '../../context/checkcontext';
 
 function Profile () {
 
     const a = useContext(checkcontext);
+    const [id, setid] = useState("");
+    const [user, setdata] = useState("");
 
 
     const checkccokie = async () => {
@@ -20,13 +22,72 @@ function Profile () {
   
       else{
         console.log(check);
+        setid(check.id);
         a.closelog();
+        
       }
      } 
     }
+
+    const _id = localStorage.getItem("userId");
+
+    const getuser = async () => {
+        const udata = await(await axios.post('/api/getuser', {id: _id}) ).data;
+        if(udata){
+            setdata(udata);
+            console.log(udata);
+        }
+
+        else{
+            console.log("unable to fetch data ")
+        }
+    }
+
+    const name = useRef();
+    const mail = useRef();
+   
+    const changename = async () => {
+        const udata = await (await axios.patch('/api/updatename', {name: name.current.value, uid: id})).data;
+        if (udata){
+            alert(udata.message)
+        }
+    }
+
+    const changemail = async () => {
+        const udata = await (await axios.patch('/api/updatemail', {mail: mail.current.value, uid: id})).data;
+        if (udata){
+            alert(udata.message)
+        }
+    }
+
+    const [mes, setmes] = useState("");
+    const handlecomment = (e) => {
+        setmes(e.target.value);
+        
+    }
+
+    const changebio = async () => {
+        const udata = await (await axios.patch('/api/updateabout', {bio: mes, uid: id})).data;
+        if (udata){
+            alert(udata.message)
+            osave(false);
+            opro(true);
+            isedit(false);
+        }
+    }
+
+
+
+    
   
     useEffect(()=> {
       checkccokie()
+     
+    },[])
+    
+    useEffect(()=> {
+        getuser()
+     
     },[])
 
     const [edit, isedit] = useState(false);
@@ -66,7 +127,7 @@ function Profile () {
     return(
         <div id="pro">
             <div id='profile'>
-                    {pro && <> <User></User> <div id="iq">  <h5 onClick={doedit}>Edit Profile</h5>
+                    {pro && <> <User name = {user.name} about = {user.about} blogs = {user.blogposted}></User> <div id="iq">  <h5 onClick={doedit}>Edit Profile</h5>
                         <h5 onClick={dosave}>Saved Blogs</h5>
                         <h5>Log Out</h5>
                         </div></>}
@@ -88,30 +149,30 @@ function Profile () {
                 
                 <div id='mm'>
                   
-                    <h3>Vidit Tamrakar</h3>
+                    <h3>{user.name}</h3>
                 </div>
                 <div id='oo'>
-                <input type="text" placeholder='&nbsp; Edit Name'/>
-                <button>Edit</button>
+                <input type="text" placeholder='&nbsp; Edit Name' ref={name}/>
+                <button onClick={changename}>Edit</button>
                 </div>
 
                 <div id='mm'>
                   
-                  <h3>vidit.tamrakar16@gmail.com</h3>
+                  <h3>{user.email}</h3>
               </div>
 
                 <div id='oo'>
-                <input type="text" placeholder='&nbsp; Edit Email'/>
-                <button>Edit</button>
+                <input type="text" placeholder='&nbsp; Edit Email' ref={mail}/>
+                <button onClick={changemail}>Edit</button>
                 </div>
 
                 <div >
                   <h3>* Write Somenthing About You</h3>
               </div>
 
-              <textarea name="About" id="koo" cols="30" rows="8" placeholder='&nbsp;Write here..'></textarea>
+              <textarea name="About" id="koo" cols="30" rows="8" placeholder='&nbsp;Write here..' value={mes} onChange={handlecomment}></textarea>
 
-             <button id='ev' onClick={dopro}>Save Changes</button>
+             <button id='ev' onClick={changebio}>Save Changes</button>
 
             <h4 id='del'>Delete Account</h4>
 
@@ -133,7 +194,7 @@ function Profile () {
                             <img src="/images/vid.jpg" alt="" />
                         </div>
                         <div id='dd'>
-                           <h3>@Vidit Tamrakar</h3>
+                           <h3>@{user.name}</h3>
                           
                         </div>
                     </div>
