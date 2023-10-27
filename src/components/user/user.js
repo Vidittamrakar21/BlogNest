@@ -1,7 +1,29 @@
 import Latest from "../latest/latest";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function User (props) {
-    const num = props.blogs
+    
+    const [arr, setarr] = useState([]);
+
+    const num = localStorage.getItem("arr");
+
+
+    const showblogs = async () =>{
+        
+        const data = await(await axios.get(`/api/oneb/${num[0]}`)).data;
+        if(data){
+            setarr(arr.concat(data))
+            console.log(arr)
+        }
+    }
+
+    useEffect(()=>{
+        showblogs()
+    },[])
+
+  
+
     return (
         <div id="nand">
             <div id="about">
@@ -27,10 +49,11 @@ function User (props) {
                     
                 </div>
                 <div id="posts">
-                    {/* <Latest></Latest>
-                    <Latest></Latest>
-                    <Latest></Latest>
-                    <Latest></Latest> */}
+                   {arr.length>1?arr.map((item)=>{
+                    return(
+                        <Latest title = {item.title} image = {item.image} create = {item.createdby} id= {item._id} likes = {item.likes} comments = {item.comments} date ={item.date}></Latest>
+                    )
+                   }):<><h2>No blog posted yet!</h2></>}
                 </div>
         </div>
     )
