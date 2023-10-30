@@ -9,7 +9,7 @@ const Checkstate = (props) =>{
     const [value, savevalue] = useState("");
     const [bdata, store] = useState([]);
     const [loading, isloading] = useState(false);
-    const [post, setpost] = useState([]);
+    const [post, setpost] = useState(0);
 
 
 
@@ -52,8 +52,8 @@ const Checkstate = (props) =>{
         isloading(x);
     }
 
-    const setdata = (d) =>{
-        setpost(d);
+    const setdata = () =>{
+        setpost((prev)=> prev + 1);
     }
     
 

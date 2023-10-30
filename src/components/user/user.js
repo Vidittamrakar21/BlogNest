@@ -1,5 +1,5 @@
 import Latest from "../latest/latest";
-import { useEffect, useState ,useContext,useMemo} from "react";
+import { useEffect, useState ,useContext} from "react";
 import axios from "axios";
 import checkcontext from "../../context/checkcontext";
 
@@ -8,7 +8,7 @@ function User (props) {
     const a = useContext(checkcontext);
     const [arr, setarr] = useState([]);
     const [postdata, setpostdata] = useState([]);    
-    const [count, setcount] = useState(0);
+    const [count, setcount] = useState(1);
 
     
   
@@ -18,13 +18,14 @@ function User (props) {
         const _id =  localStorage.getItem("userId");
         const udata = await(await axios.post('/api/getuser', {id: _id}) ).data;
         if(udata){
-            const data = await(await axios.get(`/api/oneb/${(udata.blogposted)[count]}`)).data;
+            const data = await(await axios.get(`/api/oneb/${(udata.blogposted)[a.post]}`)).data;
             if(data){
                 console.log("data",data)
                 setarr((prev)=> [...prev, data])
-                if(count < 4){
+                
+                if(a.post < 4){
+                   await a.setdata()
                     getuser()
-                    
                     
         
                 }
@@ -37,15 +38,12 @@ function User (props) {
         }
     }
 
-    const memoizedCount = useMemo(() => {
-        setcount(count+1)// Expensive computation or logic that should be memoized
-        return count + 1; // For instance, doubling the count
-      }, [count]); 
+   
 
 
     useEffect(()=>{
        getuser() 
-       setcount(count+1) 
+      
     },[])
 
   
