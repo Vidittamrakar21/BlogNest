@@ -11,8 +11,7 @@ function Profile () {
     const a = useContext(checkcontext);
     const [id, setid] = useState("");
     const [user, setdata] = useState("");
-    
-
+  
 
     const checkccokie = async () => {
      const check = await(await axios.get('/check')).data;
@@ -37,7 +36,7 @@ function Profile () {
         if(udata){
             setdata(udata);
             console.log(udata);
-            localStorage.setItem("arr", udata.blogposted);
+          
         }
 
         else{
