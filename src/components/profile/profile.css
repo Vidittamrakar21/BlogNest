@@ -205,6 +205,16 @@
     font-size: 15px;
 }
 
+#newbut{
+    height: 35px;
+    width: 90px;
+    margin-top: 10px;
+    background-color: rgba(149, 150, 150, 0.67);
+    border: none;
+    font-size: 15px;
+    color: black;
+}
+
 #oo button:hover{
     background-color: rgba(127, 129, 129, 0.67);
     cursor: pointer;
@@ -323,6 +333,16 @@
         background-color: rgba(149, 150, 150, 0.67);
         border: none;
         font-size: 15px;
+    }
+
+    #newbut{
+        height: 35px;
+        width: 90px;
+        margin-top: 10px;
+        background-color: rgba(149, 150, 150, 0.67);
+        border: none;
+        font-size: 15px;
+        color: black;
     }
 
     #koo{

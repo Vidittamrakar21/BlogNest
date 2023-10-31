@@ -53,7 +53,7 @@ const Checkstate = (props) =>{
     }
 
     const setdata = () =>{
-        setpost((prev)=> prev + 1);
+        setpost(prev => prev + 1);
     }
     
 

@@ -18,19 +18,7 @@ function User (props) {
         const _id =  localStorage.getItem("userId");
         const udata = await(await axios.post('/api/getuser', {id: _id}) ).data;
         if(udata){
-            const data = await(await axios.get(`/api/oneb/${(udata.blogposted)[a.post]}`)).data;
-            if(data){
-                console.log("data",data)
-                setarr((prev)=> [...prev, data])
-                
-                if(a.post < 4){
-                   await a.setdata()
-                    getuser()
-                    
-        
-                }
-                console.log(arr)
-            }
+            setarr(udata.blogposted);
         }
 
         else{

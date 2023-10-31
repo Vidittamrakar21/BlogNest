@@ -110,7 +110,7 @@ function Blog () {
     const dosave = async () =>{
        
         if(allow){
-            const pp = await(await axios.post('/api/save', {uid: uid, bid: id})).data;
+            const pp = await(await axios.post('/api/save', {uid: uid, bid: data})).data;
         if (pp.message){
             alert(pp.message)
         }

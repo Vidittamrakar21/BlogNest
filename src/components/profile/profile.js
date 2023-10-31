@@ -5,36 +5,43 @@ import User from '../user/user';
 import { useState,useContext,useEffect,useRef } from 'react';
 import axios from 'axios';
 import checkcontext from '../../context/checkcontext';
+import { useNavigate } from 'react-router-dom';
 
 function Profile () {
 
     const a = useContext(checkcontext);
     const [id, setid] = useState("");
     const [user, setdata] = useState("");
-  
+    const [savedarr, setsave] = useState([]);
+    const [allow, setallow] = useState(false);
+    const navigate = useNavigate();
+
 
     const checkccokie = async () => {
      const check = await(await axios.get('/check')).data;
      if(check){
       if(check.message === 'declined'){
         a.openlog()
+        setallow(false);
       }
   
       else{
         console.log(check);
         setid(check.id);
+        setallow(true);
         a.closelog();
         
       }
      } 
     }
 
-    const _id = localStorage.getItem("userId");
-
+    
     const getuser = async () => {
+        const _id = localStorage.getItem("userId");
         const udata = await(await axios.post('/api/getuser', {id: _id}) ).data;
         if(udata){
             setdata(udata);
+            setsave(udata.saved);
             console.log(udata);
           
         }
@@ -48,17 +55,29 @@ function Profile () {
     const mail = useRef();
    
     const changename = async () => {
+       if(allow){
         const udata = await (await axios.patch('/api/updatename', {name: name.current.value, uid: id})).data;
         if (udata){
             alert(udata.message)
         }
+       }
+
+       else{
+        alert("Kindly login first to continue !")
+       }
     }
 
     const changemail = async () => {
+       if(allow){
         const udata = await (await axios.patch('/api/updatemail', {mail: mail.current.value, uid: id})).data;
         if (udata){
             alert(udata.message)
         }
+       }
+
+       else{
+        alert("Kindly login first to continue !")
+       }
     }
 
     const [mes, setmes] = useState("");
@@ -68,6 +87,7 @@ function Profile () {
     }
 
     const changebio = async () => {
+      if(allow){
         const udata = await (await axios.patch('/api/updateabout', {bio: mes, uid: id})).data;
         if (udata){
             alert(udata.message)
@@ -75,8 +95,27 @@ function Profile () {
             opro(true);
             isedit(false);
         }
+      }
+
+      else{
+        alert("Kindly login first to continue !")
+      }
     }
 
+    const logout = async () => {
+       if(allow){
+        const logdata = await (await axios.post('/api/user/logout')).data;
+        if(logdata.message){
+            localStorage.removeItem("userId")
+            alert(logdata.message);
+            navigate('/')
+        }
+       }
+
+       else{
+        alert("Kindly login first to continue !")
+       }
+    }
 
 
     
@@ -124,13 +163,36 @@ function Profile () {
        reader.readAsDataURL(file);
     }
 
+    const deleteacc = async () => {
+      if(allow){
+        const popup = window.confirm("NOTE: After deleting your account ,all the information, blogs posted will be removed from BlogNest, Are you sure you want to proceed? ")
+        if(popup){
+            const del = await (await axios.delete(`/api/user/delete/${id}`)).data;
+            if(del.message){
+                const logdata = await (await axios.post('/api/user/logout')).data;
+                localStorage.removeItem("userId")
+              
+                navigate('/')
+                alert(del.message)
+                
+            }
+        }
+
+
+      }
+
+      else{
+        alert("Kindly login first to continue !")
+      }
+    }
+
 
     return(
         <div id="pro">
             <div id='profile'>
                     {pro && <> <User name = {user.name} about = {user.about} blogs = {user.blogposted}></User> <div id="iq">  <h5 onClick={doedit}>Edit Profile</h5>
                         <h5 onClick={dosave}>Saved Blogs</h5>
-                        <h5>Log Out</h5>
+                        <h5 onClick={logout}>Log Out</h5>
                         </div></>}
 
                 {edit && <div id='ii'>
@@ -172,17 +234,21 @@ function Profile () {
               </div>
 
               <textarea name="About" id="koo" cols="30" rows="8" placeholder='&nbsp;Write here..' value={mes} onChange={handlecomment}></textarea>
+              <button id='newbut' onClick={changebio}>Edit</button>
+             <button id='ev' onClick={dopro}>Save Changes</button>
 
-             <button id='ev' onClick={changebio}>Save Changes</button>
-
-            <h4 id='del'>Delete Account</h4>
+            <h4 id='del' onClick={deleteacc}>Delete Account</h4>
 
 
-                </div>}
+           </div>}
 
             {save && <div id='rakh'>
                 <h2>Blogs Saved By You</h2>
-                {/* <Latest></Latest> */}
+               {savedarr.length>0? savedarr.map((item)=>{
+                return(
+                    <Latest title = {item.title} image = {item.image} create = {item.createdby} id= {item._id} likes = {item.likes} comments = {item.comments} date ={item.date}></Latest>
+                )
+               }):<><h3>No Blogs Saved Yet !</h3></>}
                 
                 </div>}
                
@@ -203,7 +269,7 @@ function Profile () {
                     <div id="out">
                     <h5 onClick={doedit}>Edit Profile</h5>
                         <h5 onClick={dosave}>Saved Blogs</h5>
-                        <h5>Log Out</h5>
+                        <h5 onClick={logout}>Log Out</h5>
                     </div>
                    <div  className='joot'>
                         <Footer></Footer>

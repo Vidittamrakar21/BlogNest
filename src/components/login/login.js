@@ -74,11 +74,11 @@ function Login(){
         isloading(true);
         const user  = await(await axios.post('/api/login', { email: amail.current.value, password: apass.current.value})).data;
             if(user){
-                
                 isloading(false);
                 const stopload = () =>{
                     alert(user.message);
-                    
+                    localStorage.setItem("userId", (user.existuser)._id)
+                    a.closelog();
                     amail.current.value="";
                     apass.current.value="";
 
@@ -102,7 +102,7 @@ function Login(){
             </div>
             <h2>Log In To Continue</h2>
             <input type="text" className="inp" placeholder='&nbsp;Enter Email' ref={amail}/>
-            <input type="text" className="inp" placeholder='&nbsp;Enter Password' ref={apass}/>
+            <input type="password" className="inp" placeholder='&nbsp;Enter Password' ref={apass}/>
             <button id="put" onClick={loginuser}>Log In</button>
             <ClipLoader color="#36bdd6" loading={loading} cssOverride={{ position: 'absolute', bottom: '70px'}}/>
             <div id="rem">
@@ -124,8 +124,8 @@ function Login(){
             <h2>Create an account</h2>
             <input type="text" className="inp" placeholder='&nbsp;Enter Name' ref={uname}/>
             <input type="text" className="inp" placeholder='&nbsp;Enter Email' ref={mail}/>
-            <input type="text" className="inp" placeholder='&nbsp;Enter Password' ref={pass}/>
-            <input type="text" className="inp" placeholder='&nbsp; Confirm Password' ref={confirmpass}/>
+            <input type="password" className="inp" placeholder='&nbsp;Enter Password' ref={pass}/>
+            <input type="password" className="inp" placeholder='&nbsp; Confirm Password' ref={confirmpass}/>
             <button id="put" onClick={registeruser}>Sign Up</button>
             <ClipLoader color="#36bdd6" loading={loading} cssOverride={{ position: 'absolute', bottom: '60px'}}/>
             <div id='noac'>
