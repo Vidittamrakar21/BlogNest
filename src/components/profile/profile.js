@@ -43,6 +43,7 @@ function Profile () {
             setdata(udata);
             setsave(udata.saved);
             console.log(udata);
+            a.setdata()
           
         }
 

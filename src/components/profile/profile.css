@@ -268,9 +268,17 @@
     display: none;
 }
 
+#threedots{
+    margin-top: 20px;
+}
+
 @media only screen and (max-width:600px){
     #settings{
         display: none;
+    }
+
+    #threedots{
+        margin-top: 20px;
     }
 
     #profile{

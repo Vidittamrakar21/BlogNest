@@ -14,6 +14,7 @@ import Tech from './components/home/tech';
 import Food from './components/home/food';
 import Entre from './components/home/entre';
 import Search from './components/search/search';
+import Other from './components/user/other';
 
 
 import {
@@ -53,6 +54,7 @@ function App() {
           <Route exact path='/write' element={<><Write/>  <Footer></Footer></>}></Route>  
 
           <Route  path='/user' element={<><User/>  <Footer></Footer></>}></Route>  
+          <Route  path='/other' element={<><Other/>  <Footer></Footer></>}></Route>  
 
         </Routes>  
        
