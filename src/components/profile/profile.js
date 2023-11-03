@@ -153,15 +153,19 @@ function Profile () {
         isedit(false);
     }
 
-    const showfile = (e) => {
-        console.log(e.target.files[0])
-        const file = e.target.files[0];
-       const reader  = new FileReader();
-       reader.addEventListener("load", ()=>{
-        console.log(reader.result);
-       })
+    const [file , setfile] = useState();
 
-       reader.readAsDataURL(file);
+    const showfile = async (e) => {
+      setfile( e.target.files[0])
+
+      const formdata = new FormData()
+      formdata.append('file', e.target.files[0])
+     const data= await( await axios.post(`/api/upload/${user._id}`, formdata)).data;
+     if(data.message){
+        alert(data.message)
+     }
+       
+      
     }
 
     const deleteacc = async () => {
@@ -202,7 +206,7 @@ function Profile () {
                 
                 <div id="uplo">
                        <div id="pop">
-                            <img src="/images/vid.jpg" alt="" />
+                            <img src={user.image? `/images/${user.image}`: "/images/user.png"} alt="" />
                         </div>
                         <h3>Update Profile Photo</h3>
                         <input type="file" accept='image/*' id='file' placeholder='photo' onChange={showfile}/>
@@ -259,7 +263,7 @@ function Profile () {
             <div id='settings'>
                    <div id="mamu">
                         <div id="pop">
-                            <img src="/images/vid.jpg" alt="" />
+                            <img src={user.image? `/images/${user.image}`: "/images/user.png"} alt="" />
                         </div>
                         <div id='dd'>
                            <h3>@{user.name}</h3>

@@ -1,9 +1,9 @@
 
 import './side.css';
-import { useContext } from 'react';
+import { useContext,useEffect,useState } from 'react';
 import checkcontext from '../../context/checkcontext';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 
 function Side(props){
 
@@ -12,6 +12,26 @@ function Side(props){
    a.closeside();
   }
 
+  const [user , setdata] = useState("");
+
+  const getuser = async () => {
+   const _id = localStorage.getItem("userId");
+   const udata = await(await axios.post('/api/getuser', {id: _id}) ).data;
+   if(udata){
+       setdata(udata);
+       
+     
+   }
+
+   else{
+       console.log("unable to fetch data ")
+   }
+ }
+
+ useEffect(()=>{
+   getuser()
+ },[])
+ 
     return(
         <div  className={`fade ${ !a.side? "khisak" : ""}`}>
          <div className={` ${ !a.side? "barside" : "sidebar"}`}>
@@ -51,7 +71,7 @@ function Side(props){
   <Link className = "lona" to={"/profile"}>
   <div id="cut"  className='dib'>
   <div id="pot">
-  <img src="images/vid.jpg" alt="" />
+  <img src={user.image? `/images/${user.image}`: "/images/user.png"} alt="" />
   </div>
    <h4>Go To Profile</h4>
 </div>

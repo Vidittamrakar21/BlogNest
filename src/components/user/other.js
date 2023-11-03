@@ -46,7 +46,7 @@ function Other () {
             <div id="about">
                     <div id="namu">
                         <div id="oop">
-                            <img src="/images/vid.jpg" alt="" />
+                            <img src={userdata.image? `/images/${userdata.image}`: "/images/user.png"} alt="" />
                         </div>
                         <div id='ff'>
                           

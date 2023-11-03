@@ -10,7 +10,7 @@ function User (props) {
     
     const a = useContext(checkcontext);
     const [arr, setarr] = useState([]);
-    const [postdata, setpostdata] = useState([]);    
+    const [userdata, setuserdata] = useState([]);    
     const [count, setcount] = useState(1);
     const [loading ,setloading] = useState(true);
     const [uid , setid ] = useState("");
@@ -25,6 +25,7 @@ function User (props) {
         if(udata){
             setarr(udata.blogposted);
             setid(udata._id);
+            setuserdata(udata);
             setloading(false)
         }
 
@@ -59,7 +60,7 @@ function User (props) {
             <div id="about">
                     <div id="namu">
                         <div id="oop">
-                            <img src="/images/vid.jpg" alt="" />
+                            <img src={userdata.image? `/images/${userdata.image}`: "/images/user.png"} alt="" />
                         </div>
                         <div id='ff'>
                           

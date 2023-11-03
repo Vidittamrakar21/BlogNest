@@ -193,7 +193,7 @@ function Blog () {
 
                              <div id='fufa'>
                                   <div id="top">
-                                    <img src="/images/vid.jpg" alt="" />
+                                    <img src="/images/user.png" alt="" />
                                   </div>
                                   <h3>By @{item.by}</h3>
                              </div>

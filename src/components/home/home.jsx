@@ -60,6 +60,21 @@ function Home (){
         
     }
 
+    const initial = async () => {
+        const bdata = await (await axios.get(`/api/blogs?limit=4&page=${1}`)).data;
+       
+        if(bdata){
+           
+            setdata(data.concat(bdata));
+           
+            isloading(false);
+            
+            
+        }
+
+        
+    }
+
     const count = async () => {
         const pydata = await (await axios.get('/api/all')).data;
         isset(pydata);
@@ -83,7 +98,8 @@ function Home (){
           
     }
     useEffect(()=> {
-        // start()
+      
+        start()
         count()
         trend()
     },[])
@@ -95,6 +111,8 @@ function Home (){
             <h1 className='juu'>For You</h1>
  
             <MoonLoader color="#2b2b2b" loading={loading} />
+
+          
            
          <InfiniteScroll dataLength={data.length} next={start} hasMore={full} loader={ <ClipLoader color="#36bdd6"></ClipLoader>}>
             {data.map((item) =>{
